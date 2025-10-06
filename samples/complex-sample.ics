@@ -1,0 +1,282 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Microsoft Corporation//Outlook 16.0 MIMEDIR//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Complex Work Calendar
+X-WR-CALDESC:A comprehensive calendar with timezones\, recurring events\,
+ and various component types
+X-WR-TIMEZONE:America/New_York
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:America/New_York
+BEGIN:DAYLIGHT
+DTSTART:20070311T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+TZNAME:EDT
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0400
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:20071104T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+TZNAME:EST
+TZOFFSETFROM:-0400
+TZOFFSETTO:-0500
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VTIMEZONE
+TZID:Europe/London
+BEGIN:DAYLIGHT
+DTSTART:20070325T010000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+TZNAME:BST
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0100
+END:DAYLIGHT
+BEGIN:STANDARD
+DTSTART:20071028T020000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+TZNAME:GMT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:daily-standup-recurring@company.com
+DTSTAMP:20231201T090000Z
+DTSTART;TZID=America/New_York:20231204T093000
+DTEND;TZID=America/New_York:20231204T100000
+SUMMARY:Daily Standup Meeting
+DESCRIPTION:Daily team synchronization meeting.\n\nAgenda:\n- What did you
+ work on yesterday?\n- What will you work on today?\n- Any blockers?\n\n
+ Please be prepared to discuss your progress and any impediments.
+LOCATION:Virtual - Zoom Room 123-456-789
+ORGANIZER;CN=Scrum Master;ROLE=CHAIR:mailto:scrummaster@company.com
+ATTENDEE;CN=John Developer;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE:
+ mailto:john.dev@company.com
+ATTENDEE;CN=Jane Designer;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE:
+ mailto:jane.design@company.com
+ATTENDEE;CN=Bob Tester;ROLE=REQ-PARTICIPANT;PARTSTAT=TENTATIVE;RSVP=TRUE:
+ mailto:bob.test@company.com
+ATTENDEE;CN=Alice PM;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=TRUE:
+ mailto:alice.pm@company.com
+STATUS:CONFIRMED
+CLASS:PUBLIC
+TRANSP:OPAQUE
+PRIORITY:5
+SEQUENCE:3
+CREATED:20231120T100000Z
+LAST-MODIFIED:20231201T085000Z
+CATEGORIES:Work,Development,Agile
+RRULE:FREQ=DAILY;BYDAY=MO,TU,WE,TH,FR;UNTIL=20241231T235959Z
+EXDATE;TZID=America/New_York:20231225T093000
+EXDATE;TZID=America/New_York:20240101T093000
+EXDATE;TZID=America/New_York:20240704T093000
+URL:https://company.zoom.us/j/123456789
+ATTACH:https://company.sharepoint.com/sites/dev/standup-notes
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MEETING-TYPE:Recurring
+X-TEAM:Development
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Standup meeting starts in 5 minutes
+TRIGGER:-PT5M
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sprint-review-biweekly@company.com
+DTSTAMP:20231201T090000Z
+DTSTART;TZID=America/New_York:20231208T140000
+DTEND;TZID=America/New_York:20231208T160000
+SUMMARY:Sprint Review & Demo
+DESCRIPTION:Biweekly sprint review meeting where teams demonstrate
+ completed work.\n\nFormat:\n- Team presentations (10 min each)\n-
+ Stakeholder feedback\n- Planning for next sprint\n\nPlease prepare your
+ demo and have all artifacts ready.
+LOCATION:Main Conference Room\, 15th Floor
+ORGANIZER;CN=Product Owner;ROLE=CHAIR:mailto:po@company.com
+STATUS:CONFIRMED
+CLASS:CONFIDENTIAL
+TRANSP:OPAQUE
+PRIORITY:3
+SEQUENCE:1
+CREATED:20231115T100000Z
+LAST-MODIFIED:20231201T090000Z
+CATEGORIES:Work,Review,Sprint,Demo
+RRULE:FREQ=WEEKLY;INTERVAL=2;BYDAY=FR;COUNT=26
+GEO:40.7128;-74.0060
+RESOURCES:Projector,Whiteboard,Video Conference
+COMMENT:All team members must attend this review
+CONTACT:Product Owner <po@company.com>
+X-SPRINT-NUMBER:24
+X-DEMO-REQUIRED:TRUE
+BEGIN:VALARM
+ACTION:EMAIL
+SUMMARY:Sprint Review Tomorrow
+DESCRIPTION:Don't forget about tomorrow's sprint review. Please prepare
+ your demo.
+ATTENDEE:mailto:john.dev@company.com
+ATTENDEE:mailto:jane.design@company.com
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:all-hands-monthly@company.com
+DTSTAMP:20231201T090000Z
+DTSTART;TZID=America/New_York:20231215T100000
+DTEND;TZID=America/New_York:20231215T110000
+SUMMARY:All Hands Meeting - December
+DESCRIPTION:Monthly company-wide meeting covering:\n\n• Financial update\n
+ • Product roadmap\n• Team announcements\n• Q&A session\n\nThis meeting is
+ mandatory for all employees.
+LOCATION:Main Auditorium / Virtual Hybrid
+ORGANIZER;CN=CEO;ROLE=CHAIR:mailto:ceo@company.com
+STATUS:CONFIRMED
+CLASS:PUBLIC
+TRANSP:OPAQUE
+PRIORITY:1
+SEQUENCE:0
+CREATED:20231101T100000Z
+LAST-MODIFIED:20231201T090000Z
+CATEGORIES:Company,All Hands,Monthly
+RRULE:FREQ=MONTHLY;BYMONTHDAY=15;UNTIL=20241215T235959Z
+URL:https://company.com/allhands
+ATTACH:https://company.sharepoint.com/sites/hr/all-hands-december.pdf
+X-MANDATORY-ATTENDANCE:TRUE
+X-LIVE-STREAM:https://company.stream.com/allhands
+X-RECORDING-AVAILABLE:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:international-call-weekly@company.com
+DTSTAMP:20231201T090000Z
+DTSTART;TZID=Europe/London:20231205T150000
+DTEND;TZID=Europe/London:20231205T160000
+SUMMARY:International Team Sync
+DESCRIPTION:Weekly synchronization call with our London and Tokyo offices.
+ \n\nTime zones:\n• New York: 10:00 AM EST\n• London: 3:00 PM GMT\n•
+ Tokyo: 12:00 AM JST+1\n\nPlease be mindful of time zone differences.
+LOCATION:Virtual Conference - Global Bridge
+ORGANIZER;CN=Global Coordinator:mailto:global@company.com
+ATTENDEE;CN=NY Team Lead;ROLE=REQ-PARTICIPANT:mailto:nylead@company.com
+ATTENDEE;CN=London Team Lead;ROLE=REQ-PARTICIPANT:mailto:londonlead@company.com
+ATTENDEE;CN=Tokyo Team Lead;ROLE=REQ-PARTICIPANT:mailto:tokyolead@company.com
+STATUS:CONFIRMED
+CLASS:PUBLIC
+TRANSP:OPAQUE
+PRIORITY:4
+SEQUENCE:2
+CREATED:20231120T100000Z
+LAST-MODIFIED:20231201T090000Z
+CATEGORIES:International,Sync,Weekly
+RRULE:FREQ=WEEKLY;BYDAY=TU;INTERVAL=1
+X-TIMEZONE-PRIMARY:Europe/London
+X-GLOBAL-MEETING:TRUE
+END:VEVENT
+BEGIN:VEVENT
+UID:holiday-party-annual@company.com
+DTSTAMP:20231201T090000Z
+DTSTART;TZID=America/New_York:20231222T180000
+DTEND;TZID=America/New_York:20231222T220000
+SUMMARY:Annual Holiday Party 🎄
+DESCRIPTION:Join us for our annual holiday celebration!\n\nFeaturing:\n•
+ Dinner and drinks\n• Live music\n• Gift exchange (optional)\n• Dancing\n
+ • Photo booth\n\nDress code: Business casual to festive attire\n\nPlease
+ RSVP by December 15th with dietary restrictions.
+LOCATION:Grand Ballroom\, Marriott Downtown\, 123 Main Street\, New York\,
+ NY 10001
+ORGANIZER;CN=HR Team;ROLE=CHAIR:mailto:hr@company.com
+STATUS:CONFIRMED
+CLASS:PUBLIC
+TRANSP:OPAQUE
+PRIORITY:2
+SEQUENCE:1
+CREATED:20231101T100000Z
+LAST-MODIFIED:20231201T090000Z
+CATEGORIES:Social,Holiday,Annual,Party
+GEO:40.7505;-73.9934
+RESOURCES:DJ Equipment,Photo Booth,Catering
+CONTACT:HR Team <hr@company.com> (555) 123-4567
+COMMENT:Significant others and family welcome
+ATTACH:https://company.com/events/holiday-party-2023
+X-EVENT-TYPE:Social
+X-DRESS-CODE:Business Casual to Festive
+X-RSVP-REQUIRED:TRUE
+X-RSVP-DEADLINE:20231215T235959Z
+END:VEVENT
+BEGIN:VTODO
+UID:project-milestone-todo@company.com
+DTSTAMP:20231201T090000Z
+DTSTART;TZID=America/New_York:20231201T090000
+DUE;TZID=America/New_York:20231215T170000
+SUMMARY:Complete Q4 Project Milestone
+DESCRIPTION:Major deliverable for Q4 project including:\n\n- Code review
+ and testing\n- Documentation updates\n- Stakeholder presentation\n-
+ Deployment planning\n\nThis is a critical milestone for the company's Q4
+ objectives.
+PRIORITY:1
+STATUS:IN-PROCESS
+PERCENT-COMPLETE:75
+SEQUENCE:3
+CREATED:20231101T090000Z
+LAST-MODIFIED:20231201T090000Z
+CATEGORIES:Work,Project,Milestone,Q4
+ORGANIZER;CN=Project Manager:mailto:pm@company.com
+ATTENDEE;CN=Lead Developer;ROLE=REQ-PARTICIPANT:mailto:leaddev@company.com
+RELATED-TO:project-kickoff-meeting@company.com
+X-PROJECT-CODE:Q4-2023-ALPHA
+X-BUSINESS-IMPACT:HIGH
+END:VTODO
+BEGIN:VTODO
+UID:annual-review-preparation@company.com
+DTSTAMP:20231201T090000Z
+DUE;TZID=America/New_York:20231220T170000
+SUMMARY:Prepare Annual Performance Review
+DESCRIPTION:Complete self-assessment and prepare for annual review meeting
+ with manager.\n\nTasks:\n• Complete self-evaluation form\n• Gather project
+ examples\n• Review goals from last year\n• Set objectives for next year
+PRIORITY:3
+STATUS:NEEDS-ACTION
+PERCENT-COMPLETE:0
+SEQUENCE:0
+CREATED:20231201T090000Z
+CATEGORIES:Personal,Review,Annual,HR
+X-REVIEW-PERIOD:2023
+X-DUE-TO:Direct Manager
+END:VTODO
+BEGIN:VJOURNAL
+UID:team-retrospective-notes@company.com
+DTSTAMP:20231201T090000Z
+DTSTART;TZID=America/New_York:20231201T140000
+SUMMARY:Sprint Retrospective - Sprint 23
+DESCRIPTION:Retrospective meeting notes and action items from Sprint 23.
+ \n\nWhat went well:\n• Improved code review process\n• Better
+ communication between teams\n• Successful deployment of new feature\n\n
+ What could be improved:\n• Testing coverage needs work\n• Documentation
+ gaps identified\n• Some dependencies caused delays\n\nAction items:\n
+ • Increase unit test coverage to 85% (Owner: Dev Team)\n• Update API
+ documentation (Owner: Tech Writer)\n• Review dependency management
+ process (Owner: Architect)
+CATEGORIES:Retrospective,Sprint,Development,Process
+X-SPRINT-NUMBER:23
+X-FACILITATOR:Scrum Master
+X-ACTION-ITEMS:3
+END:VJOURNAL
+BEGIN:VFREEBUSY
+UID:team-freebusy-december@company.com
+DTSTAMP:20231201T090000Z
+DTSTART;TZID=America/New_York:20231204T000000
+DTEND;TZID=America/New_York:20231208T235959
+ORGANIZER:mailto:scheduler@company.com
+FREEBUSY;FBTYPE=BUSY:20231204T093000Z/20231204T100000Z
+FREEBUSY;FBTYPE=BUSY:20231204T140000Z/20231204T160000Z
+FREEBUSY;FBTYPE=BUSY:20231205T150000Z/20231205T160000Z
+FREEBUSY;FBTYPE=BUSY:20231206T093000Z/20231206T100000Z
+FREEBUSY;FBTYPE=TENTATIVE:20231207T100000Z/20231207T120000Z
+FREEBUSY;FBTYPE=BUSY:20231208T093000Z/20231208T100000Z
+FREEBUSY;FBTYPE=BUSY:20231208T140000Z/20231208T160000Z
+COMMENT:Free/busy information for development team - December 4-8
+X-TEAM:Development
+X-GENERATED-BY:Calendar System
+END:VFREEBUSY
+END:VCALENDAR
