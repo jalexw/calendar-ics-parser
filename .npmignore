@@ -19,3 +19,6 @@ samples/
 
 .npmrc
 .gitignore
+
+.github/
+.env.example

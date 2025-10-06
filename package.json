@@ -2,6 +2,7 @@
   "name": "@jalexw/calendar-ics-parser",
   "version": "0.0.1",
   "private": false,
+  "repository": "https://github.com/jalexw/calendar-ics-parser.git",
   "license": "MIT",
   "scripts": {
     "cli": "bun run src/cli.ts",
