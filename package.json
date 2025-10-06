@@ -2,7 +2,8 @@
   "name": "@jalexw/calendar-ics-parser",
   "version": "0.0.1",
   "scripts": {
-    "cli": "bun run src/cli.ts"
+    "cli": "bun run src/cli.ts",
+    "test": "bun test"
   },
   "dependencies": {
     "commander": "14.0.1",

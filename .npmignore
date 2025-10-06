@@ -6,3 +6,9 @@ outputs/
 dist/
 build/
 out/
+
+**/*.test.js
+**/*.test.js.map
+**/*.test.d.ts
+
+samples/
