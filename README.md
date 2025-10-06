@@ -1,6 +1,6 @@
 # calendar-ics-parser
 
-## Install dependencies
+## Install Dependencies
 ```bash
 bun install
 ```
