@@ -1,7 +1,9 @@
-const { runCalendarIcsParserCLI } = require("./dist-cjs/index.cjs");
+#!/usr/bin/env node
+
+const jalexwCalendarIcsParser = require("@jalexw/calendar-ics-parser");
 
 async function run() {
-  await runCalendarIcsParserCLI(process.argv);
+  await jalexwCalendarIcsParser.runCalendarIcsParserCLI(process.argv);
 }
 
 run(process.argv)
