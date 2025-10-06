@@ -5,6 +5,8 @@
  * Supports parsing VEVENT, VTODO, VJOURNAL, VFREEBUSY, and VTIMEZONE components.
  */
 
+import runCalendarIcsParserCLI from "./cli";
+
 // Main parsing function
 export { default as parseIcsData } from "./parseIcsData";
 
@@ -56,3 +58,14 @@ export {
 
 // File reading utility
 export { default as readUtf8 } from "./readUtf8";
+
+if (require.main === module) {
+  runCalendarIcsParserCLI(process.argv)
+    .then((): void => {
+      process.exit(0);
+    })
+    .catch((e: unknown): void => {
+      console.error("Error running @jalexw/calendar-ics-parser: ", e);
+      process.exit(1);
+    });
+}

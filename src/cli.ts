@@ -112,5 +112,12 @@ async function runCalendarIcsParserCLI(argv: readonly string[]): Promise<void> {
 export { runCalendarIcsParserCLI, runCalendarIcsParserCLI as default };
 
 if (require.main === module) {
-  runCalendarIcsParserCLI(process.argv);
+  runCalendarIcsParserCLI(process.argv)
+    .then((): void => {
+      process.exit(0);
+    })
+    .catch((e: unknown): void => {
+      console.error("Error running @jalexw/calendar-ics-parser: ", e);
+      process.exit(1);
+    });
 }
