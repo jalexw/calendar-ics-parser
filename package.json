@@ -24,5 +24,8 @@
   "type": "module",
   "module": "dist-esm/index.mjs",
   "main": "dist-cjs/index.cjs",
-  "types": "dist-types/index.d.ts"
+  "types": "dist-types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  }
 }
