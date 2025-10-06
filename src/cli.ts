@@ -10,7 +10,7 @@ import {
 const cli = new Command();
 
 cli
-  .name("calendar-ics-parser")
+  .name("@jalexw/calendar-ics-parser")
   .description(
     "Parse a .ics calendar data file and convert/transform the data!",
   );
