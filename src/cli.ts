@@ -112,5 +112,5 @@ async function runCalendarIcsParserCLI(argv: readonly string[]): Promise<void> {
 export { runCalendarIcsParserCLI, runCalendarIcsParserCLI as default };
 
 if (require.main === module) {
-  await runCalendarIcsParserCLI(process.argv);
+  runCalendarIcsParserCLI(process.argv);
 }

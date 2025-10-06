@@ -1,9 +1,15 @@
 {
   "name": "@jalexw/calendar-ics-parser",
   "version": "0.0.1",
+  "private": false,
+  "license": "MIT",
   "scripts": {
     "cli": "bun run src/cli.ts",
-    "test": "bun test"
+    "test": "bun test",
+    "build:cjs": "bun build ./src/index.ts --outfile ./dist-cjs/index.cjs --format cjs --target node",
+    "build:esm": "bun build ./src/index.ts --outfile ./dist-esm/index.mjs --format esm --target node",
+    "build:types": "tsc --project tsconfig.json",
+    "build": "bun run build:types && bun run build:cjs && bun run build:esm"
   },
   "dependencies": {
     "commander": "14.0.1",
@@ -12,7 +18,11 @@
   "packageManager": "bun@1.2.22",
   "devDependencies": {
     "typescript": "5.9.3",
-    "bun-types": "1.2.22"
+    "bun-types": "1.2.22",
+    "tsc-alias": "1.8.16"
   },
-  "type": "module"
+  "type": "module",
+  "module": "dist-esm/index.mjs",
+  "main": "dist-cjs/index.cjs",
+  "types": "dist-types/index.d.ts"
 }

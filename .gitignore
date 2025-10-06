@@ -8,3 +8,12 @@ outputs/
 dist/
 build/
 out/
+dist-cjs/
+dist-esm/
+dist-types/
+
+.env
+.env.local
+.env.development
+.env.test
+.env.production

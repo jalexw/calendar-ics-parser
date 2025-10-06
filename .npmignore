@@ -1,14 +1,21 @@
 node_modules/
 
+src/
+tsconfig.json
+
 inputs/
 outputs/
-
-dist/
-build/
-out/
+samples/
 
 **/*.test.js
 **/*.test.js.map
 **/*.test.d.ts
 
-samples/
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+.npmrc
+.gitignore
