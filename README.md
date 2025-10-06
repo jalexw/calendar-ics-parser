@@ -32,36 +32,36 @@ yarn add @jalexw/calendar-ics-parser
 
 ```bash
 # Parse an ICS file with pretty formatting (default)
-bun run src/cli.ts transform calendar.ics
+bunx @jalexw/calendar-ics-parser transform calendar.ics
 
 # Enable debug mode for detailed parsing info
-bun run src/cli.ts transform calendar.ics --debug
+bunx @jalexw/calendar-ics-parser transform calendar.ics --debug
 ```
 
 ### Output Formats
 
 ```bash
 # Pretty formatted output with icons and colors
-bun run src/cli.ts transform calendar.ics --format pretty
+bunx @jalexw/calendar-ics-parser transform calendar.ics --format pretty
 
 # Table view of all events
-bun run src/cli.ts transform calendar.ics --format table
+bunx @jalexw/calendar-ics-parser transform calendar.ics --format table
 
 # Simplified JSON output
-bun run src/cli.ts transform calendar.ics --format json
+bunx @jalexw/calendar-ics-parser transform calendar.ics --format json
 
 # Raw parsed data structure
-bun run src/cli.ts transform calendar.ics --format raw
+bunx @jalexw/calendar-ics-parser transform calendar.ics --format raw
 ```
 
 ### Options
 
 ```bash
 # Hide metadata in pretty format
-bun run src/cli.ts transform calendar.ics --no-metadata
+bunx @jalexw/calendar-ics-parser transform calendar.ics --no-metadata
 
 # Limit description length
-bun run src/cli.ts transform calendar.ics --max-desc 100
+bunx @jalexw/calendar-ics-parser transform calendar.ics --max-desc 100
 ```
 
 ## 📚 Programmatic API
@@ -69,7 +69,7 @@ bun run src/cli.ts transform calendar.ics --max-desc 100
 ### Basic Usage
 
 ```typescript
-import { parseIcsData, formatParsedData } from '@jalexw/calendar-ics-parser';
+import { parseIcsData, formatParsedData, type ParsedIcsData } from '@jalexw/calendar-ics-parser';
 
 const icsContent = `
 BEGIN:VCALENDAR
@@ -85,7 +85,7 @@ END:VEVENT
 END:VCALENDAR`;
 
 // Parse the ICS data
-const parsed = await parseIcsData(icsContent);
+const parsed: ParsedIcsData = await parseIcsData(icsContent);
 
 // Format for display
 console.log(formatParsedData(parsed));

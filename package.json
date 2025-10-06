@@ -1,6 +1,6 @@
 {
   "name": "@jalexw/calendar-ics-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "repository": "https://github.com/jalexw/calendar-ics-parser.git",
   "license": "MIT",
@@ -28,5 +28,6 @@
   "types": "dist-types/index.d.ts",
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "bin": "dist-cjs/index.cjs"
 }
