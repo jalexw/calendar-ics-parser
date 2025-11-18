@@ -43,6 +43,11 @@
       "types": "./dist-types/*",
       "import": "./dist-esm/*",
       "require": "./dist-cjs/*"
+    },
+    "./parseIcsData": {
+      "types": "./dist-types/parseIcsData.d.ts",
+      "import": "./dist-esm/parseIcsData.js",
+      "require": "./dist-cjs/index.cjs"
     }
   }
 }
