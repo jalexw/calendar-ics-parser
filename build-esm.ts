@@ -10,5 +10,6 @@ await build({
   outdir: "dist-esm",
   splitting: true,
   format: "esm",
-  target: "node",
+  target: "browser",
+  external: ["fs", "fs/promises"],
 });
